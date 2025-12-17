@@ -6,4 +6,4 @@ Os experimentos e conceitos foram baseados em material didático público, adapt
 
 ### Referência
 - https://github.com/dalcimar/RC18EE---Intro-to-Deep-Learning
-- https://www.youtube.com/watch?v=0VD_2t6EdS4&list=PL9At2PVRU0ZqVArhU9QMyI3jSe113_m2-&index=1
+- https://www.youtube.com/watch?v=VkLUQWNhApk&list=PL9At2PVRU0ZqVArhU9QMyI3jSe113_m2-&index=5
