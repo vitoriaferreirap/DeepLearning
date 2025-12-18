@@ -8,10 +8,10 @@ Os experimentos e conceitos foram baseados em material didático público, adapt
 - https://github.com/dalcimar/RC18EE---Intro-to-Deep-Learning
 - https://www.youtube.com/watch?v=VkLUQWNhApk&list=PL9At2PVRU0ZqVArhU9QMyI3jSe113_m2-&index=5
 
-# Anotações de estudo
-## vectorization_example.ipynb - nucleo de um neoronio.
-## perceptron_animation.ipynb - fluxo completo do Perceptron, iniciando pelo:
--carregamento dos dados;
+## Anotações de estudo
+### vectorization_example.ipynb - nucleo de um neoronio.
+### perceptron_animation.ipynb - fluxo completo do Perceptron, iniciando pelo:
+- carregamento dos dados;
 - entender o problema de classificação;
 - distribuição das classes;
 - define o Perceptron como um único neurônio;
