@@ -10,3 +10,11 @@ Os experimentos e conceitos foram baseados em material didático público, adapt
 
 
 vectorization_example.ipynb - nucleo de um neoronio.
+fluxo completo do Perceptron, iniciando pelo:
+ carregamento dos dados
+ entender o problema de classificação
+ distribuição das classes
+ define o Perceptron como um único neurônio
+ realiza o treinamento incremental 
+ registra pesos e bias 
+ visualização da evolução por meio de animação.
