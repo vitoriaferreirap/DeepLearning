@@ -17,17 +17,27 @@ A base teórica de álgebra linear, cálculo e os primeiros modelos de redes neu
 
 ##  Anotações de Estudo
 
-###  /Fundamentals
-Nesta pasta encontram-se os fundamentos necessários para entender como a rede neural processa dados:
+## Neural_Networks_MLP
+Nesta pasta encontram-se os fundamentos necessários para entender como uma rede neural processa dados, desde um único neurônio até camadas empilhadas.
 
-* **01_tensores_vetores_matrizes**: Estudo da base matemática para manipulação de imagens e dados multidimensionais.
-* **vectorization_example.ipynb**: Implementação eficiente do produto escalar, representando o mecanismo de soma e ativação (núcleo) de um neurônio.
-* **linear_regr_gd2**: Estudo sobre Regressão Linear e a intuição do algoritmo de Gradiente Descendente para otimização de pesos.
-* **perceptron_animation.ipynb**: Demonstração do fluxo completo de um neurônio artificial (Perceptron):
-    * Carregamento e visualização da distribuição das classes.
-    * Treinamento incremental com registro de pesos e bias.
-    * Animação da evolução da fronteira de decisão durante o aprendizado.
+### Diferenciação de 
+* **Single Nuron (Redes Neurais de 1 Neurônio):** Foco no funcionamento básico — Pesos ($W$), Viés ($b$), Função de Soma e Ativação. É a base de tudo.
+* **Multilayer Perceptron (MLP):** Quando empilhamos vários neurônios em camadas "Densa" (Dense). Aqui, a rede já é considerada "Deep Learning", mas ela ainda é "cega" para estruturas espaciais, pois precisa que a imagem seja achatada (`Flatten`) em uma única linha de números.
 
+### Files
+* **`01_tensors_vectors_matrices.ipynb`**: Estudo da base matemática para manipulação de imagens e dados multidimensionais (Tensores).
+* **`02_linear_regression_gd.ipynb`**: Estudo sobre Regressão Linear e a intuição do algoritmo de Gradiente Descendente para otimização automática de pesos.
+* **`03_perceptron_v1.ipynb`**: Demonstração do fluxo completo de um neurônio artificial: carregamento de classes, treinamento incremental e animação da fronteira de decisão.
+* **`04_vectorization_numpy.ipynb`**: Implementação eficiente do produto escalar (Dot Product), representando o "coração" matemático do neurônio utilizando processamento paralelo com NumPy.
+* **`05_fashion_mnist_mlp.ipynb`**: Aplicação de Redes Densas (MLP) na classificação de imagens. Exploração de matrizes de pixels, normalização de dados e uso da função Softmax para classificar 10 categorias de roupas.
+
+## CNN_Computer_Vision
+Nesta pasta foi iniciado o estudo de **Redes Neurais Convolucionais (CNNs)**, que são a evolução tecnológica específica para o tratamento de imagens e vídeos.
+
+### Por que usar CNNs em vez de MLP?
+* **MLP (Pasta 01):** Analisa pixels isolados. Se a orelha de um cavalo mudar de posição na foto, a MLP pode não entender que ainda é uma orelha, pois ela olha apenas para o "endereço" fixo do pixel.
+* **CNN (Pasta 02):** Utiliza **Filtros (Convoluções)** que escaneiam a imagem. Ela aprende a identificar características (bordas, curvas, texturas e formas) independente de onde elas estejam na imagem. 
+* **Aplicação na IC:** É a arquitetura ideal para identificar claudicação, pois consegue extrair padrões de movimento e silhueta das patas dos cavalos de forma muito mais precisa.
 ---
 
 ##  Cronograma de Estudos e Implementações
