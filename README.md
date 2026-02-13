@@ -4,7 +4,7 @@ Repositório dedicado ao estudo da introdução ao Deep Learning, incluindo a im
 
 Este repositório faz parte da Iniciação Científica: **"Técnicas de Aprendizado Profundo e IA Generativa Aplicadas a Ecossistemas Inteligentes"**.
 
-##  Referências (Fundamentals)
+##  Referências
 
 A base teórica de álgebra linear, cálculo e os primeiros modelos de redes neurais foram consolidados a partir da combinação de materiais de acesso aberto e orientação acadêmica específica:
 
@@ -15,12 +15,12 @@ A base teórica de álgebra linear, cálculo e os primeiros modelos de redes neu
 * **Instrução Acadêmica:**
     * **Aulas de Mestrado:** Ciclo de 5 aulas ministradas pelo professor orientador desta Iniciação Científica, abordando tópicos avançados de aprendizado profundo, otimização e a fundamentação teórica necessária para o inicio do desenvolvimento deste projeto.
 
-##  Anotações de Estudo
+#  Anotações de Estudo
 
 ## Neural_Networks_MLP
 Nesta pasta encontram-se os fundamentos necessários para entender como uma rede neural processa dados, desde um único neurônio até camadas empilhadas.
 
-### Diferenciação de 
+### Diferenças entre:  
 * **Single Nuron (Redes Neurais de 1 Neurônio):** Foco no funcionamento básico — Pesos ($W$), Viés ($b$), Função de Soma e Ativação. É a base de tudo.
 * **Multilayer Perceptron (MLP):** Quando empilhamos vários neurônios em camadas "Densa" (Dense). Aqui, a rede já é considerada "Deep Learning", mas ela ainda é "cega" para estruturas espaciais, pois precisa que a imagem seja achatada (`Flatten`) em uma única linha de números.
 
