@@ -13,3 +13,5 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 * **Referências de Estudo:**
     * https://poloclub.github.io/cnn-explainer/
     * https://github.com/ultralytics/ultralytics
+    * https://www.youtube.com/watch?v=oq0NpJh8vJY
+    * https://github.com/ProgramadorArtificial/treinar_yolov8/blob/main/yolov8.ipynb
