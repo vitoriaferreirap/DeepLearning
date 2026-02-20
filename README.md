@@ -1,46 +1,34 @@
 # DeepLearning 
 
-Repositório dedicado ao estudo da introdução ao Deep Learning, incluindo a implementação, visualização de algoritmos e aplicação em análise de movimento animal.
+Repositório dedicado ao estudo introdutório de Deep Learning, incluindo implementação, visualização de algoritmos e aplicação em análise de movimento animal.
 
-Este repositório faz parte da Iniciação Científica: **"Técnicas de Aprendizado Profundo e IA Generativa Aplicadas a Ecossistemas Inteligentes"**.
+Este repositório faz parte da Iniciação Científica: **"Técnicas de Aprendizado Profundo e Visão Computacional"**.
 
-##  Referências
+Os estudos aqui realizados foram desenvolvidos a partir do consumo de materiais de acesso público e de instrução acadêmica, disponíveis em [**Visualizar Documento de Referência**](Reference.md)
 
-A base teórica de álgebra linear, cálculo e os primeiros modelos de redes neurais foram consolidados a partir da combinação de materiais de acesso aberto e orientação acadêmica específica:
+## Notas de Estudo
+Anotações feitas ao longo dos estudos diários, com o intuito de agrupar os conhecimentos estudados e as etapas dos processos, disponíveis em [**Visualizar Documento Notas de Estudo**](Notes.md)
 
-* **Material Didático Público:**
-    * **Repositório de Implementações:** [RC18EE - Intro to Deep Learning (Dalcimar)](https://github.com/dalcimar/RC18EE---Intro-to-Deep-Learning) – Base para os primeiros algoritmos em Python.
-    * **Conteúdo em Vídeo:** [Playlist Introdução ao Deep Learning](https://www.youtube.com/watch?v=0VD_2t6EdS4&list=PL9At2PVRU0ZqVArhU9QMyI3jSe113_m2-) – Suporte teórico complementar.
+## Analises
+Analises de performace feitas ao longo dos estudos disponíveis em [**Visualizar Documento PerformanceIndicators**](PerformanceIndicators.md)
 
-* **Instrução Acadêmica:**
-    * **Aulas de Mestrado:** Ciclo de 5 aulas ministradas pelo professor orientador desta Iniciação Científica, abordando tópicos avançados de aprendizado profundo, otimização e a fundamentação teórica necessária para o inicio do desenvolvimento deste projeto.
-
-#  Anotações de Estudo
-
-## Neural_Networks_MLP
+## Pastas:
+### Neural_Networks_MLP
 Nesta pasta encontram-se os fundamentos necessários para entender como uma rede neural processa dados, desde um único neurônio até camadas empilhadas.
 
-### Diferenças entre:  
-* **Single Nuron (Redes Neurais de 1 Neurônio):** Foco no funcionamento básico — Pesos ($W$), Viés ($b$), Função de Soma e Ativação. É a base de tudo.
-* **Multilayer Perceptron (MLP):** Quando empilhamos vários neurônios em camadas "Densa" (Dense). Aqui, a rede já é considerada "Deep Learning", mas ela ainda é "cega" para estruturas espaciais, pois precisa que a imagem seja achatada (`Flatten`) em uma única linha de números.
-
 ### Files
-* **`01_tensors_vectors_matrices.ipynb`**: Estudo da base matemática para manipulação de imagens e dados multidimensionais (Tensores).
-* **`02_linear_regression_gd.ipynb`**: Estudo sobre Regressão Linear e a intuição do algoritmo de Gradiente Descendente para otimização automática de pesos.
-* **`03_perceptron_v1.ipynb`**: Demonstração do fluxo completo de um neurônio artificial: carregamento de classes, treinamento incremental e animação da fronteira de decisão.
-* **`04_vectorization_numpy.ipynb`**: Implementação eficiente do produto escalar (Dot Product), representando o "coração" matemático do neurônio utilizando processamento paralelo com NumPy.
+* **`01_tensors_vectors_matrices.ipynb`**: Estudo da base matemática para manipulação de imagens e dados multidimensionais (tensores).
+* **`02_linear_regression_gd.ipynb`**: Estudo sobre Regressão Linear e a intuição do algoritmo de Gradiente Descendente para otimização automática dos pesos.
+* **`03_perceptron_v1.ipynb`**: Demonstração do fluxo completo de um neurônio artificial: carregamento de dados, treinamento incremental e animação da fronteira de decisão.
+* **`04_vectorization_numpy.ipynb`**: Implementação eficiente do produto escalar (dot product), representando o núcleo matemático do neurônio utilizando operações vetorizadas com NumPy.
 * **`05_fashion_mnist_mlp.ipynb`**: Aplicação de Redes Densas (MLP) na classificação de imagens. Exploração de matrizes de pixels, normalização de dados e uso da função Softmax para classificar 10 categorias de roupas.
 
-## CNN_Computer_Vision
-Nesta pasta foi iniciado o estudo de **Redes Neurais Convolucionais (CNNs)**, que são a evolução tecnológica específica para o tratamento de imagens e vídeos.
+### CNN_Computer_Vision
+Nesta pasta foi iniciado o estudo de **Redes Neurais Convolucionais (CNNs)**, que são arquiteturas específicas para o processamento de imagens e vídeos.
 
-### Por que usar CNNs em vez de MLP?
-* **MLP (Pasta 01):** Analisa pixels isolados. Se a orelha de um cavalo mudar de posição na foto, a MLP pode não entender que ainda é uma orelha, pois ela olha apenas para o "endereço" fixo do pixel.
-* **CNN (Pasta 02):** Utiliza **Filtros (Convoluções)** que escaneiam a imagem. Ela aprende a identificar características (bordas, curvas, texturas e formas) independente de onde elas estejam na imagem. 
-* **Aplicação na IC:** É a arquitetura ideal para identificar claudicação, pois consegue extrair padrões de movimento e silhueta das patas dos cavalos de forma muito mais precisa.
 ---
 
-##  Cronograma de Estudos e Implementações
+## Cronograma de Estudos e Implementações
 
 ### 01. Fundamentals
 - [x] **Tensores, Vetores e Matrizes:** Base matemática para manipulação de imagens.
@@ -49,11 +37,12 @@ Nesta pasta foi iniciado o estudo de **Redes Neurais Convolucionais (CNNs)**, qu
 - [x] **Perceptron Animation:** Visualização do aprendizado de um neurônio único.
 
 ### 02. Convolutional Neural Networks (CNN)
-- [ ] **Introdução às CNNs:** Estudo de Filtros (Kernels), Padding, Stride e Mapas de Características.
-- [ ] **Arquiteturas Clássicas:** Entendendo o fluxo de redes como LeNet-5 e ResNet.
+- [x] **Introdução às CNNs:** Estudo de filtros (kernels),rotulagem, padding, stride e mapas de características.
+- [ ] **Técnicas Clássicas:** Entendendo e aplicando detecção, classificação, segmentação semântica, predição e estimativa de pose.
+- [ ] **Arquiteturas Clássicas:** Entendendo o fluxo de arquiteturas de redes.
 - [ ] **Data Augmentation:** Técnicas de expansão de dataset para imagens de campo (fazenda).
 
 ### 03. Applied Project: Horse Gait Analysis
 - [ ] **Pose Estimation:** Pesquisa e implementação com frameworks como DeepLabCut ou SLEAP.
-- [ ] **Análise de Trajetória:** Extração e tratamento de dados das patas via marcadores adesivos.
+- [ ] **Análise de Trajetória:** Extração e tratamento de dados das patas por meio de marcadores adesivos.
 - [ ] **Escrita do Artigo:** Compilação dos resultados obtidos nos testes com os cavalos.

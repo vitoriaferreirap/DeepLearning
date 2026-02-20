@@ -1,8 +1,10 @@
 Este documento registra a comparação de métricas entre duas arquiteturas de Redes Neurais aplicadas ao dataset **Fashion MNIST**. O objetivo é validar a eficiência da extração de características espaciais em modelos de Visão Computacional.
 
-Arquitetura | Acurácia (Treino) | Acurácia (Teste) |Loss (Teste) | Generalização
-MLP (Denso)        89.4%               87.1%          0.34          Perdeu ~2.3% de precisão ao ver imagens novas.
-CNN                92.0%               90.0%          0.27          Perdeu ~2.0% de precisão ao ver imagens novas.
+- Arquitetura: MLP (Denso) | CNN 
+- Acurácia (Treino):  89.4 | 92.0% 
+- Acurácia (Teste):  87.1% | 90.0%
+- Loss (Teste):  0.34 | 0.27
+- Generalização: Perdeu ~2.3% | Perdeu ~2.0%
 
 ## Análise dos Resultados
 ### 1. Superioridade da CNN
