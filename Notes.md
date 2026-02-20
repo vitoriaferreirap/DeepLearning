@@ -38,10 +38,43 @@ https://github.com/ultralytics/ultralytics
 
 ### Predição
 - Inferência realizada pelo modelo treinado.
-- Entrada: novos dados.
+- Entrada: novos dados que o modelo nao conhece.
 - Saída: estimativa baseada no que foi aprendido durante o treinamento.
 
 # 20/02
 
-## Arquiterua YOLOv8n
-- Entendo a base da arquitetura (imports/ configs/ treinamento/ )
+## Arquiterua YOLOv8
+- Compreensão da base da arquitetura: imports, configurações, treinamento (.train()), validação (.val()) e inferência (.predict()).
+https://docs.ultralytics.com/models/yolov8/#segmentation-coco
+## Escolha da Técnica e Modelos
+- Detection: yolov8n.pt
+- Instance Segmentation: yolov8n-seg.pt
+- Pose/Keypoints: yolov8n-pose.pt
+- Oriented Detection: yolov8n-obb.pt
+- Classification: yolov8n-cls.pt
+- Escalabilidade: Cada tamanho de modelo (n, s, m, l, x) possui um equilíbrio diferente entre performance (precisão) e consumo de hardware (velocidade/memória).
+- Parâmetros:
+    - Argumentos Básicos: São universais (ex: epochs, imgsz, batch).
+    - Argumentos Específicos: Existem parâmetros que só fazem sentido para certas técnicas (ex: parâmetros de máscara ou pontos de articulação).
+- Segmentação engloba a Detecção: Ao treinar um modelo de Segmentação (-seg.pt), o resultado sempre terá o atributo .boxes (a caixa) preenchido além do .masks (a máscara). A lógica da arquitetura segue esta ordem:
+    - 1.Extração de Características: Identifica se "algo" existe na imagem.
+    - 2.Detecção: Desenha um quadrado (Bounding Box) em volta desse "algo" para delimitar o espaço.
+    - 3.Segmentação: Dentro do quadrado delimitado, a rede pinta pixel por pixel para encontrar o contorno exato.
+- Para o YOLO fazer a máscara, ele obrigatoriamente precisa localizar o objeto primeiro. A Detecção é o "esqueleto" e a Segmentação é a "pele".
+## Objetivo Validação:
+- Verificar se o modelo aprendeu a generalizar ou se ele apenas decorou as imagens de treino (o que chamamos de Overfitting). Se a métrica no treino está ótima, mas na validação está péssima, modelo não serve para a vida real.
+## Métricas de Performance
+- As métricas são geradas após a etapa de Validação.
+### Forma de análise por técnica:
+- Na Detecção (.pt): olha o mAP50.
+- Na Segmentação (-seg.pt): olha o Mask mAP
+- Na Pose (-pose.pt): olha o OKS ou Pose mAP.
+- Na Classificação (-cls.pt): olha o Top-1 e Top-5 Accuracy.
+## Obs:
+### A Matemática "Escondida"
+- Toda a complexidade de Convoluções, Pooling, Backpropagation e funções de ativação está "encapsulada" dentro do código da Ultralytics. Ao dar o comando .train(), o YOLO ativa esse motor matemático.
+- O Rótulo (Label): As imagens precisam estar rotuladas (anotadas) de acordo com a técnica.  O modelo não "adivinha" o que é segmentação sozinho. A técnica que foi escolhida no modelo (.pt vs -seg.pt) tem que dar "match" com o tipo de rótulo criado.
+    - Para Detecção: Entrega para o modelo uma imagem e um arquivo de texto com 5 valores: classe x_centro y_centro largura altura. É a coordenada de um quadrado simples.
+    - Para Segmentação: Entrega para o modelo a mesma imagem, mas o arquivo de texto contém dezenas de coordenadas: classe x1 y1 x2 y2 x3 y3... que formam o polígono (contorno exato).
+    -  Para Pose: O arquivo de texto é mais denso. Ele combina a caixa da detecção com os pontos específicos (articulações): classe x y w h x1 y1 v1 x2 y2 v2.
+- erro: Se carregar um modelo de segmentação (-seg.pt), mas entregar rótulos que só têm caixas (detecção), o modelo vai dar erro ou não vai aprender a segmentar, porque ele "esperava" polígonos e recebeu apenas quadrados.
