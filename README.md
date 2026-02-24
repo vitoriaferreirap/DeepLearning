@@ -25,6 +25,9 @@ Nesta pasta encontram-se os fundamentos necessários para entender como uma rede
 
 ### CNN_Computer_Vision
 Nesta pasta foi iniciado o estudo de **Redes Neurais Convolucionais (CNNs)**, que são arquiteturas específicas para o processamento de imagens e vídeos.
+* **01**: Treinamento com CNN para comparação de métricas em relação à MLP (Multilayer Perceptron - rede neural densa tradicional onde cada neurônio se conecta a todos os outros da camada seguinte).
+* **2**: Estudo da arquitetura YOLOv8 (You Only Look Once - modelo de detecção de objetos em tempo real extremamente rápido e preciso), analisando suas camadas, argumentos, saídas e aplicação de técnicas de treinamento.
+* **3**: Estudo sobre o treinamento de redes usando ResNet (Residual Network) para a inferência (predição de localização baseada em aprendizado prévio) de pontos com anotações, utilizando o framework DeepLabCut no google Colab.
 
 ---
 

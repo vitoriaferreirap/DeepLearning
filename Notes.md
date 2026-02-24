@@ -9,12 +9,11 @@
 # 19/02
 - Preparar dados (Rotulagem/Anotação) — ensinando o modelo onde estão os objetos.
 - Criar uma base de dados organizada de imagens.
-- Aprender a rotular manualmente (https://www.makesense.ai/).
+- Aprender a rotular manualmente.
 - Exportar arquivo no formato COCO JSON.
 - Validação das anotações (verificar se as caixas estão corretas nas imagens).
 
 ## YOLOv8 (Arquitetura)
-https://github.com/ultralytics/ultralytics
 - Iniciando entendimento sobre a Arquitetura YOLOv8
 
 ## Entendendo conceitos:
@@ -46,7 +45,7 @@ https://github.com/ultralytics/ultralytics
 ## Arquiterua YOLOv8
 - Compreensão da base da arquitetura: imports, configurações, treinamento (.train()), validação (.val()) e inferência (.predict()).
 https://docs.ultralytics.com/models/yolov8/#segmentation-coco
-## Escolha da Técnica e Modelos
+### Escolha da Técnica e Modelos
 - Detection: yolov8n.pt
 - Instance Segmentation: yolov8n-seg.pt
 - Pose/Keypoints: yolov8n-pose.pt
@@ -80,7 +79,6 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 - erro: Se carregar um modelo de segmentação (-seg.pt), mas entregar rótulos que só têm caixas (detecção), o modelo vai dar erro ou não vai aprender a segmentar, porque ele "esperava" polígonos e recebeu apenas quadrados.
 
 # 24 e 25/02
-
 ## Notação de Imagens
 ### Softwares de Rastreamento (Sistemas Optoeletrônicos)
 - São sensores de contraste que necessitam de pontos físicos (marcadores retroreflexivos ou ativos) no objeto. São ideais para ambientes controlados (laboratórios), mas limitados em campo.
