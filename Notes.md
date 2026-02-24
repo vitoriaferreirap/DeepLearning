@@ -78,3 +78,19 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
     - Para Segmentação: Entrega para o modelo a mesma imagem, mas o arquivo de texto contém dezenas de coordenadas: classe x1 y1 x2 y2 x3 y3... que formam o polígono (contorno exato).
     -  Para Pose: O arquivo de texto é mais denso. Ele combina a caixa da detecção com os pontos específicos (articulações): classe x y w h x1 y1 v1 x2 y2 v2.
 - erro: Se carregar um modelo de segmentação (-seg.pt), mas entregar rótulos que só têm caixas (detecção), o modelo vai dar erro ou não vai aprender a segmentar, porque ele "esperava" polígonos e recebeu apenas quadrados.
+
+# 24 e 25/02
+
+## Notação de Imagens
+### Softwares de Rastreamento (Sistemas Optoeletrônicos)
+- São sensores de contraste que necessitam de pontos físicos (marcadores retroreflexivos ou ativos) no objeto. São ideais para ambientes controlados (laboratórios), mas limitados em campo.
+
+### CVAT (Computer Vision Annotation Tool)
+- Ferramenta de anotação de imagens com interface intuitiva, possibilitando trabalhar com anotações de keypoints (pontos-chave anatômicos) e também esqueletos. Permite exportar arquivos em vários formatos e utiliza IA genérica para interpolação (técnica matemática de preenchimento de dados entre dois pontos conhecidos) em vídeos através de tracks (rastreamento dinâmico baseado em fluxo óptico ou algoritmos de detecção).
+
+### DeepLabCut (DLC)
+-Framework especializado em aprendizado supervisionado (método de treinamento onde a IA aprende a partir de exemplos rotulados por um humano), baseado em Deep Learning (aprendizado profundo baseado em redes neurais artificiais complexas), que carrega diversas arquiteturas para treinar modelos.
+- A interpolação dos pontos é feita treinando um modelo de CNN (Redes Neurais Convolucionais, especializadas em processamento e reconhecimento de padrões em imagens).
+- Possui funções prontas para fluxos de treino e ferramentas para o refinamento (processo de correção manual de erros da IA para retreinamento e melhoria da precisão) de frames com erros.
+- Desenvolvido com foco em estimativa de pose sem marcadores (markerless pose estimation). A rede é ensinada a reconhecer anatomia, texturas e articulações, e não apenas movimentos de pixels. Gera dados estatísticos de confiabilidade, sendo robusto contra ruídos e capaz de interpretar movimentos complexos.
+
