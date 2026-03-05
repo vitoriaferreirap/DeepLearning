@@ -91,7 +91,9 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 
 # 04/03
 ## Camada 1 - Treinamento, validação e predição com DeepLabCut
-- Entendendo o ciclo de vida do treinamento de uma rede neural (ResNet-50) a avalição e predição no restante do vídeo, com base em anotações manuais de 60 frames feitas na interface gráfica (Napari).
-### Processo:
-- Testando, estudando e analisando, valores de épocas, calculos e métricas, com valores de interação deferentes.
 
+- Entendendo o ciclo de vida do treinamento de uma rede neural (ResNet-50), a avaliação e a predição no restante do vídeo, com base em anotações manuais de 60 frames feitas na interface gráfica (Napari).
+
+### Processo:
+- Testando, estudando e analisando valores de épocas, cálculos e métricas, com valores de iterações diferentes.
+- Entendendo métricas, possíveis erros e suas causas.
