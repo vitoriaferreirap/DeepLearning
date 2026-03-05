@@ -87,8 +87,11 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 - Ferramenta de anotação de imagens com interface intuitiva, possibilitando trabalhar com anotações de keypoints (pontos-chave anatômicos) e também esqueletos. Permite exportar arquivos em vários formatos e utiliza IA genérica para interpolação (técnica matemática de preenchimento de dados entre dois pontos conhecidos) em vídeos através de tracks (rastreamento dinâmico baseado em fluxo óptico ou algoritmos de detecção).
 
 ### DeepLabCut (DLC)
--Framework especializado em aprendizado supervisionado (método de treinamento onde a IA aprende a partir de exemplos rotulados por um humano), baseado em Deep Learning (aprendizado profundo baseado em redes neurais artificiais complexas), que carrega diversas arquiteturas para treinar modelos.
-- A interpolação dos pontos é feita treinando um modelo de CNN (Redes Neurais Convolucionais, especializadas em processamento e reconhecimento de padrões em imagens).
-- Possui funções prontas para fluxos de treino e ferramentas para o refinamento (processo de correção manual de erros da IA para retreinamento e melhoria da precisão) de frames com erros.
-- Desenvolvido com foco em estimativa de pose sem marcadores (markerless pose estimation). A rede é ensinada a reconhecer anatomia, texturas e articulações, e não apenas movimentos de pixels. Gera dados estatísticos de confiabilidade, sendo robusto contra ruídos e capaz de interpretar movimentos complexos.
+- Framework especializado em aprendizado supervisionado (método de treinamento onde a IA aprende a partir de exemplos rotulados por um humano), baseado em Deep Learning (aprendizado profundo baseado em redes neurais artificiais complexas), que carrega diversas arquiteturas para treinar modelos.
+
+# 04/03
+## Camada 1 - Treinamento, validação e predição com DeepLabCut
+- Entendendo o ciclo de vida do treinamento de uma rede neural (ResNet-50) a avalição e predição no restante do vídeo, com base em anotações manuais de 60 frames feitas na interface gráfica (Napari).
+### Processo:
+- Testando, estudando e analisando, valores de épocas, calculos e métricas, com valores de interação deferentes.
 

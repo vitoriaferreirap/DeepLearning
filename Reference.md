@@ -20,4 +20,7 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 - DeepLabCut
     * https://www.youtube.com/watch?v=J4gv31MU_PI&t=952s
     - codigo para o Treinamento de interpolação usando o google colab.
-        * https://github.com/DeepLabCut/DeepLabCut/blob/main/examples/COLAB/COLAB_YOURDATA_TrainNetwork_VideoAnalysis.ipynb
+        * https://github.com/DeepLabCut/DeepLabCut/blob/main/examples/COLAB/COLAB_YOURDATA_TrainNetwork_VideoAnalysis.
+
+* **Artigos lidos:**
+- https://arxiv.org/abs/1312.4659
