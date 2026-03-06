@@ -60,6 +60,7 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
     - 2.Detecção: Desenha um quadrado (Bounding Box) em volta desse "algo" para delimitar o espaço.
     - 3.Segmentação: Dentro do quadrado delimitado, a rede pinta pixel por pixel para encontrar o contorno exato.
 - Para o YOLO fazer a máscara, ele obrigatoriamente precisa localizar o objeto primeiro. A Detecção é o "esqueleto" e a Segmentação é a "pele".
+
 ## Objetivo Validação:
 - Verificar se o modelo aprendeu a generalizar ou se ele apenas decorou as imagens de treino (o que chamamos de Overfitting). Se a métrica no treino está ótima, mas na validação está péssima, modelo não serve para a vida real.
 ## Métricas de Performance
@@ -91,9 +92,20 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 
 # 04/03
 ## Camada 1 - Treinamento, validação e predição com DeepLabCut
-
 - Entendendo o ciclo de vida do treinamento de uma rede neural (ResNet-50), a avaliação e a predição no restante do vídeo, com base em anotações manuais de 60 frames feitas na interface gráfica (Napari).
 
 ### Processo:
 - Testando, estudando e analisando valores de épocas, cálculos e métricas, com valores de iterações diferentes.
 - Entendendo métricas, possíveis erros e suas causas.
+
+### Conceitos métricas
+- **Train Loss:** - Erro dentro da imagem de treino. Quanto mais próximo de 0, melhor.
+- **Valid Loss:** - Erro em uma pequena amostra de validação. Quanto mais próximo de 0, melhor.
+- **Test RMSE:** - Distância média em pixels entre a anotação real e onde a rede acha que o ponto está.
+- **RMSE (p-cutoff 0.1):** - Erro médio considerando apenas pontos onde a rede tem confiança superior a 0.1 (yaml). Se o erro for > 10px, a rede ainda pode precisar de mais treino ou mais dados para atingir o nível de um especialista.
+- **mAP** - Acurácia média. Indica a porcentagem de acertos da rede com alta precisão.
+- **maR** - Capacidade da rede de "encontrar" todos os pontos anotados.
+### 2. Métricas de Validação (Generalização)
+- **Train RMSE:** - O que o modelo decorou (erro nas imagens que foram usadas para ajustar os pesos).
+- **Test RMSE:** - O que o modelo aprendeu (erro em imagens que a rede nunca viu, indicando a capacidade de generalização).
+
