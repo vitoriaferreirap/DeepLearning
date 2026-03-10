@@ -102,7 +102,7 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 - **Train Loss:** - Erro dentro da imagem de treino. Quanto mais próximo de 0, melhor.
 - **Valid Loss:** - Erro em uma pequena amostra de validação. Quanto mais próximo de 0, melhor.
 - **Test RMSE:** - Distância média em pixels entre a anotação real e onde a rede acha que o ponto está.
-- **RMSE (p-cutoff 0.1):** - Erro médio considerando apenas pontos onde a rede tem confiança superior a 0.1 (yaml). Se o erro for > 10px, a rede ainda pode precisar de mais treino ou mais dados para atingir o nível de um especialista.
+- **RMSE (p-cutoff 0.1):** - Erro médio considerando apenas pontos onde a rede tem confiança superior a 0.1 (yaml). Se > 10px, a rede ainda pode precisar de mais treino ou mais dados para atingir o nível de um especialista.
 - **mAP** - Acurácia média. Indica a porcentagem de acertos da rede com alta precisão.
 - **maR** - Capacidade da rede de "encontrar" todos os pontos anotados.
 ### 2. Métricas de Validação (Generalização)
