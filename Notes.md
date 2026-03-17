@@ -109,3 +109,30 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 - **Train RMSE:** - O que o modelo decorou (erro nas imagens que foram usadas para ajustar os pesos).
 - **Test RMSE:** - O que o modelo aprendeu (erro em imagens que a rede nunca viu, indicando a capacidade de generalização).
 
+### Teste 1: Desenvolvimento de Modelo Próprio (Customizado)
+* **O que é:** Treinamento via Transfer Learning (ResNet-50) no DeepLabCut com anotação manual de ~300 frames.
+* **Objetivo:** Criar um modelo proprietário para automatizar a rotulagem do dataset da Iniciação Científica.
+* **Observações Pessoais:** O modelo aprendeu bem posições estáticas, mas falha na continuidade (interpolação). Notei que a falta de "pontos vizinhos" confunde a rede, fazendo-a trocar as patas dianteiras pelas traseiras, pois ela não tem contexto anatômico para entender onde cada membro deveria estar.
+* **Próximos Passos:** 1. **Refinar o Esqueleto:** Adicionar novos keypoints estratégicos (como tronco e articulações intermediárias) para criar uma conexão estrutural que sirva de guia lógico para a rede.
+    2. **Aumentar Dataset de Oclusão:** Anotar especificamente frames onde há cruzamento de membros para ensinar a rede a diferenciar as identidades das patas.
+
+# Registro de Experimentos - Estimativa de Pose Equina
+# 17/03
+
+### Teste 1: Desenvolvimento de Modelo Próprio (Customizado)
+* **O que é:** Treinamento via Transfer Learning (ResNet-50) no DeepLabCut com anotação manual de ~300 frames.
+* **Objetivo:** Criar um modelo próprio para automatizar a rotulagem do dataset da Iniciação Científica.
+* **Observações Pessoais:** O modelo aprendeu bem posições estáticas, mas falha na continuidade (interpolação). Notei que a falta de "pontos vizinhos" confunde a rede, fazendo-a trocar as patas dianteiras pelas traseiras, pois ela não tem contexto anatômico para entender onde cada membro deveria estar.
+
+### Teste 2: Modelo Pré-treinado (Automatizado)
+* **O que é:** Implementação de um modelo de benchmark (teste de comparação) para o Teste 1, previamente treinado em datasets massivos e especializados em morfologia equina, para execução de rotulagem automática.
+* **Objetivo:** Comparar o desempenho de uma rede robusta com os resultados obtidos no Teste 1.
+* **Observações Pessoais:** O modelo apresentou um resultado visual muito mais elegante e estável. Percebi que ele utiliza muito mais pontos de anotação e exibe um retângulo (Bounding Box) de detecção de objeto, o que parece limitar a área de aprendizado e facilitar a organização dos pontos no corpo do cavalo.
+
+## Próximos Passos:
+Ao analisar os dois testes (1 e 2), os seguintes passos serão aplicados para alcançar o objetivo de desenvolver um modelo próprio para automatizar futuramente as anotações:
+
+- **Refinar o Esqueleto:** Adicionar novos keypoints estratégicos (como tronco e articulações intermediárias) para criar uma conexão estrutural que sirva de guia lógico para a rede.
+
+- **Aumentar Dataset de Oclusão:** Anotar mais imagens, especificamente frames onde há cruzamento de membros, para ensinar a rede a diferenciar as identidades das patas.
+- **Integração de Detecção de Objeto:** Implementar uma camada de detecção (Bounding Box) para isolar o animal e definir uma Região de Interesse (ROI). Isso permitirá que a rede de pose foque exclusivamente na anatomia do cavalo, reduzindo o campo de visão e minimizando erros de interpolação causados por ruídos do cenário.
