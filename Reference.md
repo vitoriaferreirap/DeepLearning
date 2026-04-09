@@ -30,3 +30,11 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 
 * **Artigos lidos:**
 - https://arxiv.org/abs/1312.4659
+
+* **Imagem anatomia cavalo:**
+- https://cavalopedia.wordpress.com/2014/01/27/anatomia-o-exterior-dos-cavalos/
+
+* **Entendendo CNN residuais (ResNets):**
+- https://www.youtube.com/watch?v=Mj0P6F9_p08
+- https://www.youtube.com/watch?v=nc7FzLiB_AY
+- https://tensorspace.org/html/playground/resnet50.html 

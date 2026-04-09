@@ -1,3 +1,5 @@
+![alt text](/imagens/image.png)
+
 # MLP & CNN 
 * **Single Neuron (Rede Neural de 1 Neurônio):** Foco no funcionamento básico — Pesos ($W$), Viés ($b$), Função de Soma e Ativação. É a base de tudo.
 * **Multilayer Perceptron (MLP):** Quando empilhamos vários neurônios em camadas "Dense" (Densas). Aqui, a rede já é considerada "Deep Learning", mas ainda é "cega" para estruturas espaciais, pois precisa que a imagem seja achatada (`Flatten`) em uma única dimensão de números.
@@ -40,9 +42,7 @@
 - Entrada: novos dados que o modelo nao conhece.
 - Saída: estimativa baseada no que foi aprendido durante o treinamento.
 
-# 20/02
-
-## Arquiterua YOLOv8
+## Arquiterua YOLOv8 20/02
 - Compreensão da base da arquitetura: imports, configurações, treinamento (.train()), validação (.val()) e inferência (.predict()).
 https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 ### Escolha da Técnica e Modelos
@@ -70,7 +70,7 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 - Na Segmentação (-seg.pt): olha o Mask mAP
 - Na Pose (-pose.pt): olha o OKS ou Pose mAP.
 - Na Classificação (-cls.pt): olha o Top-1 e Top-5 Accuracy.
-## Obs:
+
 ### A Matemática "Escondida"
 - Toda a complexidade de Convoluções, Pooling, Backpropagation e funções de ativação está "encapsulada" dentro do código da Ultralytics. Ao dar o comando .train(), o YOLO ativa esse motor matemático.
 - O Rótulo (Label): As imagens precisam estar rotuladas (anotadas) de acordo com a técnica.  O modelo não "adivinha" o que é segmentação sozinho. A técnica que foi escolhida no modelo (.pt vs -seg.pt) tem que dar "match" com o tipo de rótulo criado.
@@ -79,8 +79,8 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
     -  Para Pose: O arquivo de texto é mais denso. Ele combina a caixa da detecção com os pontos específicos (articulações): classe x y w h x1 y1 v1 x2 y2 v2.
 - erro: Se carregar um modelo de segmentação (-seg.pt), mas entregar rótulos que só têm caixas (detecção), o modelo vai dar erro ou não vai aprender a segmentar, porque ele "esperava" polígonos e recebeu apenas quadrados.
 
-# 24 e 25/02
-## Notação de Imagens
+
+## Notação de Imagens 24 e 25/02
 ### Softwares de Rastreamento (Sistemas Optoeletrônicos)
 - São sensores de contraste que necessitam de pontos físicos (marcadores retroreflexivos ou ativos) no objeto. São ideais para ambientes controlados (laboratórios), mas limitados em campo.
 
@@ -90,8 +90,7 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 ### DeepLabCut (DLC)
 - Framework especializado em aprendizado supervisionado (método de treinamento onde a IA aprende a partir de exemplos rotulados por um humano), baseado em Deep Learning (aprendizado profundo baseado em redes neurais artificiais complexas), que carrega diversas arquiteturas para treinar modelos.
 
-# 04/03
-## Camada 1 - Treinamento, validação e predição com DeepLabCut
+## Camada 1 - Treinamento, validação e predição com DeepLabCut 04/03
 - Entendendo o ciclo de vida do treinamento de uma rede neural (ResNet-50), a avaliação e a predição no restante do vídeo, com base em anotações manuais de 60 frames feitas na interface gráfica (Napari).
 
 ### Processo:
@@ -105,34 +104,60 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 - **RMSE (p-cutoff 0.1):** - Erro médio considerando apenas pontos onde a rede tem confiança superior a 0.1 (yaml). Se > 10px, a rede ainda pode precisar de mais treino ou mais dados para atingir o nível de um especialista.
 - **mAP** - Acurácia média. Indica a porcentagem de acertos da rede com alta precisão.
 - **maR** - Capacidade da rede de "encontrar" todos os pontos anotados.
-### 2. Métricas de Validação (Generalização)
+### Métricas de Validação (Generalização)
 - **Train RMSE:** - O que o modelo decorou (erro nas imagens que foram usadas para ajustar os pesos).
 - **Test RMSE:** - O que o modelo aprendeu (erro em imagens que a rede nunca viu, indicando a capacidade de generalização).
 
-### Teste 1: Desenvolvimento de Modelo Próprio (Customizado)
-* **O que é:** Treinamento via Transfer Learning (ResNet-50) no DeepLabCut com anotação manual de ~300 frames.
-* **Objetivo:** Criar um modelo proprietário para automatizar a rotulagem do dataset da Iniciação Científica.
-* **Observações Pessoais:** O modelo aprendeu bem posições estáticas, mas falha na continuidade (interpolação). Notei que a falta de "pontos vizinhos" confunde a rede, fazendo-a trocar as patas dianteiras pelas traseiras, pois ela não tem contexto anatômico para entender onde cada membro deveria estar.
-* **Próximos Passos:** 1. **Refinar o Esqueleto:** Adicionar novos keypoints estratégicos (como tronco e articulações intermediárias) para criar uma conexão estrutural que sirva de guia lógico para a rede.
-    2. **Aumentar Dataset de Oclusão:** Anotar especificamente frames onde há cruzamento de membros para ensinar a rede a diferenciar as identidades das patas.
-
-# Registro de Experimentos - Estimativa de Pose Equina
-# 17/03
-
-### Teste 1: Desenvolvimento de Modelo Próprio (Customizado)
+## Teste 1: Desenvolvimento de Modelo Próprio (Customizado) Resnet50
 * **O que é:** Treinamento via Transfer Learning (ResNet-50) no DeepLabCut com anotação manual de ~300 frames.
 * **Objetivo:** Criar um modelo próprio para automatizar a rotulagem do dataset da Iniciação Científica.
 * **Observações Pessoais:** O modelo aprendeu bem posições estáticas, mas falha na continuidade (interpolação). Notei que a falta de "pontos vizinhos" confunde a rede, fazendo-a trocar as patas dianteiras pelas traseiras, pois ela não tem contexto anatômico para entender onde cada membro deveria estar.
 
-### Teste 2: Modelo Pré-treinado (Automatizado)
+## Teste 2: Modelo Pré-treinado (Automatizado) HrnetW32
 * **O que é:** Implementação de um modelo de benchmark (teste de comparação) para o Teste 1, previamente treinado em datasets massivos e especializados em morfologia equina, para execução de rotulagem automática.
 * **Objetivo:** Comparar o desempenho de uma rede robusta com os resultados obtidos no Teste 1.
 * **Observações Pessoais:** O modelo apresentou um resultado visual muito mais elegante e estável. Percebi que ele utiliza muito mais pontos de anotação e exibe um retângulo (Bounding Box) de detecção de objeto, o que parece limitar a área de aprendizado e facilitar a organização dos pontos no corpo do cavalo.
 
-## Próximos Passos:
+### Próximos Passos:
 Ao analisar os dois testes (1 e 2), os seguintes passos serão aplicados para alcançar o objetivo de desenvolver um modelo próprio para automatizar futuramente as anotações:
 
 - **Refinar o Esqueleto:** Adicionar novos keypoints estratégicos (como tronco e articulações intermediárias) para criar uma conexão estrutural que sirva de guia lógico para a rede.
-
 - **Aumentar Dataset de Oclusão:** Anotar mais imagens, especificamente frames onde há cruzamento de membros, para ensinar a rede a diferenciar as identidades das patas.
-- **Integração de Detecção de Objeto:** Implementar uma camada de detecção (Bounding Box) para isolar o animal e definir uma Região de Interesse (ROI). Isso permitirá que a rede de pose foque exclusivamente na anatomia do cavalo, reduzindo o campo de visão e minimizando erros de interpolação causados por ruídos do cenário.
+- **Integração de Detecção de Objeto (Detecção Baseada em Keypoints):** Implementar uma camada de detecção (Bounding Box) para isolar o animal e definir uma Região de Interesse (ROI). Isso permitirá que a rede de pose foque exclusivamente na anatomia do cavalo, reduzindo o campo de visão e minimizando erros de interpolação causados por ruídos do cenário.(Redução do espaço de busca e eliminação de ruído)
+
+
+## Teste 3: Evolução do Dataset e Identificação de Problemas (Semana 23/03)
+* **Expansão de Dados:** O dataset foi ampliado para 20 vídeos e ~550 frames, incluindo imagens externas para aumentar a diversidade.
+* **Crise de Semântica e Rotulagem:** Identificou-se que a nomenclatura baseada na câmera ("interno/externo") era falha para a generalização do modelo quando o animal mudava de orientação.Também, a reestruturação do esqueleto incluiu pontos no eixo central (cernelha e garupa) para servirem como âncoras semânticas. Ao fornecer pontos centrais estáveis, os membros bilaterais (patas dianteiras e traseiras) ganham um contexto espacial mais rígido, reduzindo erros onde o modelo "perde" a pata no espaço por falta de um referencial próximo.
+* **Incidente Técnico:** Devido a uma falha na execução de um script de manipulação de coordenadas via CLI, houve a sobrescrita acidental de todos os pontos anotados para valor `null`. 
+    * **Impacto:** Perda de aproximadamente 5 dias de trabalho manual.
+    * **Lição Aprendida:** Necessidade de versionamento de dados e backups antes de scripts automatizados.
+
+## Reestruturação e Otimização do Workflow (Semana 30/03)
+* **Implementação de Pipeline de Detecção:** Introdução do YOLOv8 para detecção de cavalos antes da anotação de pontos.
+* **Estratégia de Crop e ROI:** Os frames originais foram cortados com base nas caixas delimitadoras (bounding boxes), focando apenas no animal.
+    * **Ganho de Eficiência:** Redução de 50% no tempo de anotação por frame (média de 15 min).
+* **Nova Convenção de Keypoints:** Migração para nomes semanticamente consistentes (Lado Direito vs. Lado Esquerdo), tornando o modelo imune à orientação da câmera.
+* **Refinamento do Esqueleto:** Adição de pontos no eixo central (dorso/cernelha/garupa) para servir de "âncora" aos membros bilaterais, melhorando a estrutura vizinha para o treinamento.
+
+## Metodologia de Anotação e Tratamento de Oclusão
+### Para reduzir erros de interpolação e melhorar métricas de precisão, foram definidas regras estritas:
+* **Detecção (YOLO)** - Localização Global - Definir a área de busca do animal na cena original. 
+* **Crop (Recorte)** - Zoom Especialista - Eliminar ruídos visuais e focar nos detalhes anatômicos. 
+
+### Foi aplicado regras distintas para diferentes tipos de invisibilidade do ponto:
+* **Oclusão por Objeto (ex: Grama):** Considerada "Extensão Lógica". O ponto **é anotado** para manter a continuidade do movimento e consistência em cálculos de velocidade/marcha.
+* **Auto-Oclusão (Corpo do animal):** Considerada "Perda de Sinal". O ponto **não é anotado** para evitar que a rede alucine coordenadas ou confunda membros (pata direita vs. esquerda).
+
+
+
+
+
+
+
+
+
+
+
+
+
