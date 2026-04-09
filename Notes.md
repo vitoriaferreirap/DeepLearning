@@ -149,8 +149,32 @@ Ao analisar os dois testes (1 e 2), os seguintes passos serão aplicados para al
 * **Oclusão por Objeto (ex: Grama):** Considerada "Extensão Lógica". O ponto **é anotado** para manter a continuidade do movimento e consistência em cálculos de velocidade/marcha.
 * **Auto-Oclusão (Corpo do animal):** Considerada "Perda de Sinal". O ponto **não é anotado** para evitar que a rede alucine coordenadas ou confunda membros (pata direita vs. esquerda).
 
+# Relatório  de Refinamento e Backup (09/04)
+## Dificuldades Detectadas na Anotação 
+Durante o processo de anotação dos frames, foram identificados fatores críticos que desafiam a precisão do modelo e a consistência dos dados:
+* **Interferências Ambientais:** Efeito de areia sendo chutada pelo animal, o que oclui os membros inferiores.
+* **Contraste e Camuflagem:** A cor do animal em relação ao fundo e variações na pelagem dificultam a distinção exata das bordas.
+* **Oclusões Externas:** Outros animais passando por trás e presença de seres humanos (membros) na frente de partes vitais para a biomecânica, como a cernelha e o dorso.
+* **Qualidade da Imagem:** Ocorrência de erros de pixel no frame (artefatos digitais).
+* **Variabilidade Morfológica:** Mudanças bruscas de posição do cavalo conforme o movimento e a presença de animais machucados no dataset (o que altera a angulação natural das articulações).
 
+## Metodologia de Refinamento e Precisão
+A precisão em nível de pixel é fundamental, pois pequenas variações de coordenadas podem gerar ruídos significativos nos cálculos biomecânicos.
 
+* **Identificação de Marcos Anatômicos:** Para garantir a consistência entre frames, utilizei músculos, manchas, juntas e articulações como guias visuais para aplicar os pontos sempre no mesmo local relativo.
+* **Processo de Revisão Iterativa (Refatoração de Pontos):**
+    * A anotação inicial de 17 pontos por frame é exaustiva, o que pode levar à perda de microdetalhes devido à carga cognitiva.
+    * Ao realizar uma segunda passagem para análise, o foco muda para o ajuste fino. Notei a necessidade de ajustar cerca de 3 a 4 pontos por frame.
+    * Esses ajustes de "milicentímetros" nas coordenadas são cruciais, pois poucos pixels de diferença já impactam a qualidade do contexto aprendido pelo modelo.
+* **Objetivo:** Garantir que o contexto de localização seja o mais idêntico possível em todos os ~550 frames.
+
+## Organização do Dataset e Backup
+Para garantir a segurança dos dados após o incidente anterior, foi estruturada uma pasta de backup no Drive com a seguinte composição:
+
+* **Conteúdo do Backup:**
+    * Anotações refatoradas dos 20 vídeos originais (foco em cavalos indo para o lado esquerdo).
+    * 18 imagens aleatórias (dataset externo).
+    * 10 imagens espelhadas/invertidas extraídas dos vídeos (cavalos indo para o lado direito), visando aumentar a robustez do modelo para lateralidade.
 
 
 
