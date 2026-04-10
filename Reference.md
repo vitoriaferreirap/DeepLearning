@@ -38,3 +38,11 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 - https://www.youtube.com/watch?v=Mj0P6F9_p08
 - https://www.youtube.com/watch?v=nc7FzLiB_AY
 - https://tensorspace.org/html/playground/resnet50.html 
+
+* **Entendendo Batch_size e LearningRate:**
+- Material excelênte. 
+- https://www.youtube.com/watch?v=dSqKGNT0qaw
+
+* **Entendendo LearningCurves(subajustes/sobreajustes)**
+- Material excelênte. 
+- https://www.youtube.com/watch?v=nt5DwCuYY5c

@@ -135,7 +135,7 @@ Ao analisar os dois testes (1 e 2), os seguintes passos serão aplicados para al
 
 ## Reestruturação e Otimização do Workflow (Semana 30/03)
 * **Implementação de Pipeline de Detecção:** Introdução do YOLOv8 para detecção de cavalos antes da anotação de pontos.
-* **Estratégia de Crop e ROI:** Os frames originais foram cortados com base nas caixas delimitadoras (bounding boxes), focando apenas no animal.
+* **Estratégia de Crop:** Os frames originais foram cortados com base nas caixas delimitadoras (bounding boxes), focando apenas no animal.
     * **Ganho de Eficiência:** Redução de 50% no tempo de anotação por frame (média de 15 min).
 * **Nova Convenção de Keypoints:** Migração para nomes semanticamente consistentes (Lado Direito vs. Lado Esquerdo), tornando o modelo imune à orientação da câmera.
 * **Refinamento do Esqueleto:** Adição de pontos no eixo central (dorso/cernelha/garupa) para servir de "âncora" aos membros bilaterais, melhorando a estrutura vizinha para o treinamento.
