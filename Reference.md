@@ -30,6 +30,7 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 
 * **Artigos lidos:**
 - https://arxiv.org/abs/1312.4659
+- https://arxiv.org/pdf/1804.03142
 
 * **Imagem anatomia cavalo:**
 - https://cavalopedia.wordpress.com/2014/01/27/anatomia-o-exterior-dos-cavalos/
@@ -46,3 +47,7 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 * **Entendendo LearningCurves(subajustes/sobreajustes)**
 - Material excelênte. 
 - https://www.youtube.com/watch?v=nt5DwCuYY5c
+
+* **Entendo tipos de aprendizao**
+- Zero-Short Learning https://www.youtube.com/watch?v=pVpr4GYLzAo&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=25
+- Domain Adptation https://www.youtube.com/watch?v=wpUdR6MVIHQ&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=22
