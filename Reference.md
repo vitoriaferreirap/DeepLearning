@@ -48,6 +48,9 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 - Material excelênte. 
 - https://www.youtube.com/watch?v=nt5DwCuYY5c
 
-* **Entendo tipos de aprendizao**
+* **Entendo Transfer Learning**
+- https://www.youtube.com/watch?v=yofjFQddwHE&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=26
+
+* **Entendo tipos de aprendizado**
 - Zero-Short Learning https://www.youtube.com/watch?v=pVpr4GYLzAo&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=25
 - Domain Adptation https://www.youtube.com/watch?v=wpUdR6MVIHQ&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=22
