@@ -48,8 +48,13 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 - Material excelênte. 
 - https://www.youtube.com/watch?v=nt5DwCuYY5c
 
-* **Entendo Transfer Learning**
+* **Entendo**
+**Transfer Learning**, **Multitask Learning**, 
 - https://www.youtube.com/watch?v=yofjFQddwHE&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=26
+- https://www.youtube.com/watch?v=UdXfsAr4Gjw
+
+- Estratégia de treinamento de uma rede neural artificial, baseada na técnica de aprendizam por tranferência (arquitetura camadas)
+    - https://www.youtube.com/watch?v=3gyeDlZqWko
 
 * **Entendo tipos de aprendizado**
 - Zero-Short Learning https://www.youtube.com/watch?v=pVpr4GYLzAo&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=25
