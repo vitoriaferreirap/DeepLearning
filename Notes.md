@@ -176,7 +176,41 @@ Para garantir a segurança dos dados após o incidente anterior, foi estruturada
     * 18 imagens aleatórias (dataset externo).
     * 10 imagens espelhadas/invertidas extraídas dos vídeos (cavalos indo para o lado direito), visando aumentar a robustez do modelo para lateralidade.
 
+# Projeto de Iniciação Científica - Fase 2
+### Estudo de Domínios e Aprendizado de Máquina
+Nesta fase, o foco está na compreensão de **domínios (origem e destino)**, **conflito de domínio**, **adaptação de domínio** e **aprendizado por transferência (Transfer Learning)**.
 
+### Conceitos Aplicados
+
+* **Transfer Learning (Aprendizado por Transferência):**
+    * **Onde acontece:** Na transição do modelo geral para o modelo especialista.
+    * **Aplicação:** Utiliza o conhecimento prévio do modelo (que já aprendeu a identificar formas de quadrúpedes no dataset *SuperAnimal*) e direciona esse aprendizado especificamente para a anatomia e biomecânica dos cavalos. É o ato de aproveitar os pesos já treinados da rede neural para refinar a detecção em uma espécie-alvo.
+
+* **Adaptação de Domínio:**
+    * **Onde acontece:** Na resolução do conflito entre o ambiente de treino e o cenário real de aplicação.
+    * **Aplicação:** Realizada ao adicionar fotos de humanos ao treinamento para classificá-los como falso positivo. Isso ajusta o modelo para que ele "entenda" que o domínio de aplicação (mundo real) contém elementos de distração (humanos) que não eram o foco do domínio original. Força o modelo a aprender a fronteira entre o que é o animal e o que é o ambiente/ser humano.
+
+---
+
+### Resumo  das Atividades:
+
+#### Organização do Dataset
+Iniciei a fase dois com a organização do dataset em cinco categorias estruturadas:
+* **Pastas:** A, B, C, D e E.
+* **Objetivo:** Cada pasta contém dados com características específicas (detalhadas no documento de estudo) para testar a eficácia de modelos de estimativa de pose animal já treinados sobre diferentes conjuntos de dados.
+
+#### Testes e Inferência
+O primeiro modelo testado foi o **SuperAnimal-Quadruped**, um modelo conhecido como *"Plug-and-Play"* (Zero-shot), que possibilita a identificação de animais sem necessidade de anotações prévias.
+
+1.  **Inferência:** Realizei a inferência dos meus dados neste modelo para avaliar a capacidade de **generalização** da rede ao lidar com imagens inéditas.
+2.  **Variáveis de Teste:** Os vídeos utilizados apresentam variações significativas em:
+    * Cenários e contextos distintos;
+    * Orientação do animal em relação à câmera;
+    * Interação humano-animal (pessoas montadas ou caminhando junto ao cavalo).
+
+#### Diagnóstico de Problemas (Falsos Positivos)
+O modelo atual, embora eficiente na generalização de pontos para diversos animais, apresenta falhas de detecção na presença de seres humanos. 
+* **Problema Detectado:** O erro principal ocorre quando o modelo identifica um humano como se fosse um segundo animal na cena, gerando um **falso positivo**.
 
 
 

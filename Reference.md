@@ -48,14 +48,15 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 - Material excelênte. 
 - https://www.youtube.com/watch?v=nt5DwCuYY5c
 
-* **Entendo**
-**Transfer Learning**, **Multitask Learning**, 
-- https://www.youtube.com/watch?v=yofjFQddwHE&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=26
-- https://www.youtube.com/watch?v=UdXfsAr4Gjw
+* **Entendo - Tipos de aprendizado**
+- **Transfer Learning** https://www.youtube.com/watch?v=yofjFQddwHE&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=26
+- **Multitask Learning** https://www.youtube.com/watch?v=UdXfsAr4Gjw
+- **end-to-end deep learning** https://www.youtube.com/watch?v=ImUoubi_t7s&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=31
+- **Zero-Short Learning** https://www.youtube.com/watch?v=pVpr4GYLzAo&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=25
+- **Domain Adptation** https://www.youtube.com/watch?v=wpUdR6MVIHQ&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=22
 
 - Estratégia de treinamento de uma rede neural artificial, baseada na técnica de aprendizam por tranferência (arquitetura camadas)
     - https://www.youtube.com/watch?v=3gyeDlZqWko
 
-* **Entendo tipos de aprendizado**
-- Zero-Short Learning https://www.youtube.com/watch?v=pVpr4GYLzAo&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=25
-- Domain Adptation https://www.youtube.com/watch?v=wpUdR6MVIHQ&list=PLllX6JdZ23RAhaYBW4GO3OMXp1VYToBhC&index=22
+- repeositorio Anima-Pose Open-mmlab
+https://github.com/open-mmlab/mmpose
