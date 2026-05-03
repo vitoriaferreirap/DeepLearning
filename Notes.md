@@ -257,8 +257,20 @@ A matriz me permite visualizar quatro cenários principais:
 ### Conclusão de Estudo
 O objetivo do meu insight sobre **Predominância Dimensional** é atacar diretamente a taxa de **Falsos Positivos**. Ao aplicar a regra geométrica (Vertical vs. Horizontal), espero "limpar" a Matriz de Confusão, movendo os erros de Falso Positivo para a coluna de Verdadeiros Negativos, garantindo que o sistema seja robusto sem precisar ser computacionalmente caro.
 
+## Conectando Conceitos: Coerência Espacial e Orientação através do PCA
+###  Enquanto a Coerência Espacial olha para "dentro" (se os pontos estão no lugar certo entre si), a orientação olha para "fora" (como a estrutura inteira está girada ou posicionada no espaço/tela).
+
+Estudando, percebi que o PCA não é apenas um "compactador", mas uma ferramenta de análise geométrica que valida a **Coerência Espacial** e a **Orientação** dos dados através da análise da nuvem de pontos.
+
+1.  **Coerência Espacial (Correlação):** O PCA entende como os pontos das articulações estão "amarrados" matematicamente. Em vez de olhar vizinho por vizinho, ele identifica a **tendência global** de movimento do esqueleto. Se o modelo de visão gerar um ponto caótico (um "outlier" que foge da lógica física do animal), o PCA percebe que esse ponto não segue a variância principal do grupo e ajuda a suavizar ou filtrar esse erro.
+
+2.  **Análise de Orientação:** Aqui conectei com meu insight sobre a verticalidade humana. O PCA extrai o eixo de maior variação de um conjunto de pontos (o Componente Principal 1). 
+    *   Se esse eixo principal for **vertical**, os dados falham no teste de orientação para a classe "cavalo". 
+    *   Matematicamente, eu consigo provar que o objeto é um humano apenas pela inclinação da reta que o PCA traça sobre a massa de dados.
+
+**Conclusão:** Usar o PCA como filtro é, na prática, aplicar um teste estatístico de coerência e orientação antes de gastar processamento com a análise biomecânica detalhada. É a inteligência da variância garantindo que eu só processe o que realmente tem "formato e postura" de cavalo.
 
 # Proximos passos
-- gerar matriz de confusão em cida do resultado da predição.
-- testar a implementação do PCA como filtro.
+- gerar matriz de confusão em cima do resultado das predição antes de implentar PCA.
+- testar a implementação do PCA como filtro, análisando a Coerência Espacial e a Análise de Orientação.
 - finalizar treino de teste 3 para ter metricas.
