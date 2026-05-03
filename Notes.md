@@ -14,11 +14,9 @@
 - Aprender a rotular manualmente.
 - Exportar arquivo no formato COCO JSON.
 - Validação das anotações (verificar se as caixas estão corretas nas imagens).
-
-## YOLOv8 (Arquitetura)
 - Iniciando entendimento sobre a Arquitetura YOLOv8
 
-## Entendendo conceitos:
+# Entendendo conceitos:
 ### Detecção (Object Detection)
 - Identifica a localização de vários objetos na imagem.
 - Entrada: uma imagem.
@@ -65,11 +63,6 @@ https://docs.ultralytics.com/models/yolov8/#segmentation-coco
 - Verificar se o modelo aprendeu a generalizar ou se ele apenas decorou as imagens de treino (o que chamamos de Overfitting). Se a métrica no treino está ótima, mas na validação está péssima, modelo não serve para a vida real.
 ## Métricas de Performance
 - As métricas são geradas após a etapa de Validação.
-### Forma de análise por técnica:
-- Na Detecção (.pt): olha o mAP50.
-- Na Segmentação (-seg.pt): olha o Mask mAP
-- Na Pose (-pose.pt): olha o OKS ou Pose mAP.
-- Na Classificação (-cls.pt): olha o Top-1 e Top-5 Accuracy.
 
 ### A Matemática "Escondida"
 - Toda a complexidade de Convoluções, Pooling, Backpropagation e funções de ativação está "encapsulada" dentro do código da Ultralytics. Ao dar o comando .train(), o YOLO ativa esse motor matemático.
@@ -181,20 +174,15 @@ Para garantir a segurança dos dados após o incidente anterior, foi estruturada
 Nesta fase, o foco está na compreensão de **domínios (origem e destino)**, **conflito de domínio**, **adaptação de domínio** e **aprendizado por transferência (Transfer Learning)**.
 
 ### Conceitos Aplicados
-
 * **Transfer Learning (Aprendizado por Transferência):**
     * **Onde acontece:** Na transição do modelo geral para o modelo especialista.
     * **Aplicação:** Utiliza o conhecimento prévio do modelo (que já aprendeu a identificar formas de quadrúpedes no dataset *SuperAnimal*) e direciona esse aprendizado especificamente para a anatomia e biomecânica dos cavalos. É o ato de aproveitar os pesos já treinados da rede neural para refinar a detecção em uma espécie-alvo.
 
 * **Adaptação de Domínio:**
     * **Onde acontece:** Na resolução do conflito entre o ambiente de treino e o cenário real de aplicação.
-    * **Aplicação:** Realizada ao adicionar fotos de humanos ao treinamento para classificá-los como falso positivo. Isso ajusta o modelo para que ele "entenda" que o domínio de aplicação (mundo real) contém elementos de distração (humanos) que não eram o foco do domínio original. Força o modelo a aprender a fronteira entre o que é o animal e o que é o ambiente/ser humano.
+    * **Aplicação:** Realizada ao adicionar fotos de humanos ao treinamento para classificá-los como falso positivo. Isso ajusta o modelo para que ele "entenda" que o domínio de aplicação (mundo real) contém elementos de distração (humanos) que não eram o foco do domínio original. Força o modelo a aprender a fronteira entre o que é o animal e o que é o ambiente/ser humano
 
----
-
-### Resumo  das Atividades:
-
-#### Organização do Dataset
+## Organização do Dataset
 Iniciei a fase dois com a organização do dataset em cinco categorias estruturadas:
 * **Pastas:** A, B, C, D e E.
 * **Objetivo:** Cada pasta contém dados com características específicas (detalhadas no documento de estudo) para testar a eficácia de modelos de estimativa de pose animal já treinados sobre diferentes conjuntos de dados.
@@ -208,14 +196,69 @@ O primeiro modelo testado foi o **SuperAnimal-Quadruped**, um modelo conhecido c
     * Orientação do animal em relação à câmera;
     * Interação humano-animal (pessoas montadas ou caminhando junto ao cavalo).
 
-#### Diagnóstico de Problemas (Falsos Positivos)
-O modelo atual, embora eficiente na generalização de pontos para diversos animais, apresenta falhas de detecção na presença de seres humanos. 
-* **Problema Detectado:** O erro principal ocorre quando o modelo identifica um humano como se fosse um segundo animal na cena, gerando um **falso positivo**.
+# Diagnóstico de Problemas e Insight: Validação Geométrica (Humano vs. Cavalo)
+
+O modelo atual, embora eficiente na generalização de pontos para diversos animais, apresenta falhas críticas de detecção na presença de seres humanos. 
+
+### Problema Detectado
+O erro principal ocorre quando o modelo identifica um humano como se fosse um segundo animal na cena, gerando um **falso positivo**. Isso acontece porque o modelo é multimodal e tenta encontrar padrões de articulações em qualquer corpo em movimento, falhando em distinguir a espécie em cenários de proximidade.
+
+### O Insight: Predominância Dimensional
+Ao analisar esses erros de predição, cheguei a uma percepção baseada na anatomia estrutural do esqueleto e como ela se projeta no plano:
+
+*   **Análise Visual:** O cavalo apresenta uma distribuição de pontos predominantemente **horizontal** (eixo X predominante entre cabeça e cauda). Já o ser humano apresenta uma distribuição **vertical** (eixo Y predominante entre cabeça e pés).
+*   **A Solução Proposta:** Em vez de retreinar o modelo ou carregar uma segunda rede neural pesada para identificar o humano, a ideia é utilizar algoritmos de geometria como um **"filtro de postura"**.
+
+### Lógica de Execução
+Se o modelo identificar um objeto como cavalo, mas a "vizinhança" dos pontos ou a proporção entre os eixos X e Y indicar uma estrutura verticalizada, o sistema descarta a predição instantaneamente. 
+
+Por ser um cálculo matemático leve, essa abordagem evita a necessidade de "reinventar a roda" com modelos multimodais caros e foca diretamente na **sustentabilidade computacional**, reduzindo drasticamente o processamento necessário para manter a precisão da solução.
+
+# Estudo: Paradigmas de Aprendizagem e Diagnóstico de Predição
+![alt text](/imagens/image1.png)
 
 
+Durante os estudos de hoje, cataloguei os principais algoritmos de Machine Learning. O foco é priorizar algoritmos baseados em **Modelo** para a execução final, devido à leveza e velocidade de predição.
+
+# Pensamento Estratégico: O PCA como Filtro de Eficiência
+
+Ao aprofundar os estudos sobre o **PCA** (Análise de Componentes Principais), percebi que sua utilidade no projeto vai além da simples redução de dados; ele funcionará como um **curador matemático** de relevância biomecânica.
+
+### A Percepção do Excesso
+Analisando as predições geradas pelo modelo pronto, notei que ele entrega uma densidade de pontos que muitas vezes ultrapassa a necessidade real para a identificação da marcha. Na engenharia, aprendemos que "mais dados" nem sempre significa "melhor informação". Pontos que não variam ou que se movem de forma perfeitamente síncrona com outros são redundantes.
+
+### A Estratégia do Filtro
+Poderia aplicar o PCA como um filtro de pós-processamento, para:
+1.  **Isolamento da Variância:** O PCA vai identificar quais eixos de movimento realmente carregam a "assinatura" do trote do cavalo.
+2.  **Descarte de Ruído:** Pontos estáticos ou com variação insignificante serão comprimidos. Isso limpa a estrutura esquelética antes que ela chegue na camada de decisão.
+3.  **Economia Computacional:** Ao reduzir a dimensionalidade dos dados logo na saída do modelo de visão, eu diminuo drasticamente o custo de memória e processamento para as etapas seguintes.
+
+Objetivo é entender sobre a aplicação prática do conceito de **Green AI**: ser inteligente na escolha dos dados para ser econômico no consumo de energia. Não preciso de 50 pontos se 12 componentes principais explicam 95% da biomecânica que eu preciso analisar.
+
+# Diagnóstico de Performance: Falsos Positivos
+
+Ao testar as predições do modelo multimodal, identifiquei que o principal gargalo técnico é a ocorrência de **Falsos Positivos**. 
+
+*   **O que está acontecendo:** O modelo "enxerga" um cavalo onde, na verdade, existe um ser humano. No contexto de Machine Learning, isso significa que o modelo está classificando incorretamente a classe negativa (humano) como positiva (cavalo).
+*   **Impacto:** Isso gera ruído nos dados biomecânicos, pois o sistema tenta calcular angulações equinas em uma estrutura humana.
 
 
+# Ferramenta de Análise: Matriz de Confusão
+
+Para quantificar esses erros e avaliar a eficácia do meu "Filtro Geométrico", comecei a estudar a **Matriz de Confusão**. Ela será essencial para medir o sucesso da solução proposta.
+
+### Entendimento Inicial:
+A matriz me permite visualizar quatro cenários principais:
+1.  **Verdadeiro Positivo (VP):** O modelo diz que é cavalo e realmente é. (O que buscamos).
+2.  **Verdadeiro Negativo (VN):** O modelo ignora o humano corretamente. (O que o filtro geométrico deve garantir).
+3.  **Falso Positivo (FP):** O modelo diz que é cavalo, mas é humano. (**Meu problema atual**).
+4.  **Falso Negativo (FN):** O modelo não identifica o cavalo que está na cena.
+
+### Conclusão de Estudo
+O objetivo do meu insight sobre **Predominância Dimensional** é atacar diretamente a taxa de **Falsos Positivos**. Ao aplicar a regra geométrica (Vertical vs. Horizontal), espero "limpar" a Matriz de Confusão, movendo os erros de Falso Positivo para a coluna de Verdadeiros Negativos, garantindo que o sistema seja robusto sem precisar ser computacionalmente caro.
 
 
-
-
+# Proximos passos
+- gerar matriz de confusão em cida do resultado da predição.
+- testar a implementação do PCA como filtro.
+- finalizar treino de teste 3 para ter metricas.
