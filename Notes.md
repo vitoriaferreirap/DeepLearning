@@ -273,7 +273,15 @@ Estudando, percebi que o PCA não é apenas um "compactador", mas uma ferramenta
 
 * **Objetivo Prático:** Utilizar a Visão Computacional para resolver problemas de biomecânica (humana e equina) através de regras geométricas, minimizando a necessidade de treinamentos exaustivos e inferências custosas de modelos de Deep Learning.
 
-# Estudando Converção de Imagens em Matrix de Pixels - OpenCv:
-- Utilizando dataset do Kaggle, para desenvolver um classificador de cavalos.
-- Estudando a utilização do OpenCV para se trabalhar com imagens.
-- Foco Machine Learning Clissico, classificação e regressão.
+# Estudando Conversão de Imagens em Matriz de Pixels - OpenCV:
+- Utilizando dataset do Kaggle para desenvolver um classificador de cavalos.
+- Estudando a utilização do OpenCV para trabalhar com imagens.
+- Foco em Machine Learning Clássico (aprendizado supervisionado): classificação e regressão.
+
+# k-NN (k-Nearest Neighbors) - Algoritmo para resolver problemas de Machine Learning
+- Pode ser implementado em qualquer linguagem de programação.
+- Conceito matemático e estatístico baseado em uma lógica de cálculo (calcular a distância geométrica entre pontos, como a Distância Euclidiana). O OpenCV nos proporciona essas funções e algoritmos já prontos e otimizados, evitando a necessidade de implementar toda a matemática do zero.
+- Não consegue entender uma imagem colorida direto da matriz de pixels de forma eficiente. Se passar a matriz pura de pixels para o k-NN, ele vai comparar apenas se os pixels da mesma posição têm cores parecidas. Se um cavalo estiver virado para a esquerda em uma foto e para a direita em outra, o k-NN achará que são coisas totalmente diferentes. Por isso é necessária a Extração de Características (*Feature Extraction*).
+
+# Extração de Características (*Feature Extraction*)
+- Objetivo: Em vez de enviar milhões de pixels brutos, usamos funções do OpenCV para escanear a imagem e extrair apenas os "pontos marcantes" ou texturas (as características). O OpenCV transforma a foto do cavalo em um vetor numérico simplificado que descreve formatos, bordas ou gradientes. É esse vetor de características (*feature vector*) que entregamos para o k-NN treinar.
