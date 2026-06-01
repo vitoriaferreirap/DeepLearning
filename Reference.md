@@ -68,7 +68,9 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
     - https://dataroots.io/blog/a-gentle-introduction-to-geometric
     - **AMMI 2022 Course "Geometric Deep Learning" -  Michael Bronstein**
         - https://www.youtube.com/watch?v=5c_-KX1sRDQ&list=PLn2-dEmQeTfSLXW8yXP4q_Ii58wFdxb3C
-
-
-- repeositorio Anima-Pose Open-mmlab
+- **Repeositorio Anima-Pose Open-mmlab**
     - https://github.com/open-mmlab/mmpose
+- **Converção de Imagens em Matrix de Pixels - OpenCV**  
+    - https://www.youtube.com/watch?v=mAMTXJJQBDI
+    - https://www.kaggle.com/datasets/olgabelitskaya/horse-breeds?select=01_049.png
+    - https://docs.opencv.org/4.x/db/deb/tutorial_display_image.html

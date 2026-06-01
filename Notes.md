@@ -272,3 +272,8 @@ Estudando, percebi que o PCA não é apenas um "compactador", mas uma ferramenta
 * **Ética e Acessibilidade:** Defender a "Democratização da Computação", criando soluções que funcionem em máquinas comuns, permitindo que mais pesquisadores contribuam para a ciência sem depender de hardware caro.
 
 * **Objetivo Prático:** Utilizar a Visão Computacional para resolver problemas de biomecânica (humana e equina) através de regras geométricas, minimizando a necessidade de treinamentos exaustivos e inferências custosas de modelos de Deep Learning.
+
+# Estudando Converção de Imagens em Matrix de Pixels - OpenCv:
+- Utilizando dataset do Kaggle, para desenvolver um classificador de cavalos.
+- Estudando a utilização do OpenCV para se trabalhar com imagens.
+- Foco Machine Learning Clissico, classificação e regressão.
