@@ -67,7 +67,6 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 - **Geometric DeepLearning:**
     - https://dataroots.io/blog/a-gentle-introduction-to-geometric
     - **AMMI 2022 Course "Geometric Deep Learning" -  Michael Bronstein**
-        - 18h de curso, com inicio na aula 1 hoje.
         - https://www.youtube.com/watch?v=5c_-KX1sRDQ&list=PLn2-dEmQeTfSLXW8yXP4q_Ii58wFdxb3C
 
 
