@@ -283,5 +283,17 @@ Estudando, percebi que o PCA não é apenas um "compactador", mas uma ferramenta
 - Conceito matemático e estatístico baseado em uma lógica de cálculo (calcular a distância geométrica entre pontos, como a Distância Euclidiana). O OpenCV nos proporciona essas funções e algoritmos já prontos e otimizados, evitando a necessidade de implementar toda a matemática do zero.
 - Não consegue entender uma imagem colorida direto da matriz de pixels de forma eficiente. Se passar a matriz pura de pixels para o k-NN, ele vai comparar apenas se os pixels da mesma posição têm cores parecidas. Se um cavalo estiver virado para a esquerda em uma foto e para a direita em outra, o k-NN achará que são coisas totalmente diferentes. Por isso é necessária a Extração de Características (*Feature Extraction*).
 
+
 # Extração de Características (*Feature Extraction*)
 - Objetivo: Em vez de enviar milhões de pixels brutos, usamos funções do OpenCV para escanear a imagem e extrair apenas os "pontos marcantes" ou texturas (as características). O OpenCV transforma a foto do cavalo em um vetor numérico simplificado que descreve formatos, bordas ou gradientes. É esse vetor de características (*feature vector*) que entregamos para o k-NN treinar.
+
+- **1** Converter para tons de cinza.
+    - reduz a complexidade dos dados, de três canais para um.
+    - função fornecida para isso do OpenCV: cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+- **2** Redimensionar a Imagem  - Resize
+    - garante que as imagens tenham os mesmos numeros de pixels(altura e largura).Matrizes iguais.
+    -  tamanho ideal 64x64, 128x128, 64x128pixels (retem contornos sem exigir muito processamento)
+    - função fornecida para isso do OpenCV: cv2.resize(imagem, (largura, altura))
+- **3** Ajuste tipos de dados.
+    - classificador do OpenCV exige uma matriz bidimencional vire um vetor unidimensional e que tenham valores do mesmo tipo float32.
+    - funcão/método: .flatten() ou .reshape(-1) com .astype(np.float32)

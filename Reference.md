@@ -74,7 +74,8 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
     - https://www.youtube.com/watch?v=mAMTXJJQBDI
     - https://www.kaggle.com/datasets/olgabelitskaya/horse-breeds?select=01_049.png
     - https://docs.opencv.org/4.x/db/deb/tutorial_display_image.html
-
+    - https://docs.opencv.org/4.x/d5/d26/tutorial_py_knn_understanding.html
+    - https://docs.opencv.org/4.x/d8/d4b/tutorial_py_knn_opencv.html
 
 - **Testar**
     - https://scikit-image.org/docs/stable/auto_examples/edges/plot_skeleton.html
