@@ -316,3 +316,22 @@ O maior desafio conceitual está em compreender a transição entre enxergar uma
 2. **Armazenamento em Lista:** Uma lista nativa do Python atua como uma sacola de armazenamento temporário, agrupando cada um dos 670 vetores individuais gerados durante a execução do fluxo.
 3. **Unificação com NumPy:** A conversão final transforma essa lista nativa em uma estrutura de matriz unificada (`np.array`). Esse processo empilha os 670 vetores de forma organizada, gerando uma única grande tabela estruturada com o formato final de `(670, 4096)` (670 imagens por 4096 pixels), deixando o dataset totalmente pronto para ser enviado à função de treinamento do k-NN.
 ![alt text](image-1.png)
+
+# Extração de Características - Filtros de Bordas e Gradientes
+Na etapa de extração de características, decidi seguir uma estratégia de **filtros independentes** em vez de extratores complexos prontos. Apliquei diferentes transformações matemáticas sobre a minha imagem pré-processada em tons de cinza. Cada um desses filtros gera uma matriz nova do mesmo tamanho da imagem de entrada ($64 \times 64$), ressaltando uma informação visual específica e isolada (como bordas verticais, horizontais e relevos).
+Utilizando as funções `cv.Sobel()` e `cv.Laplacian()`, consegui extrair minhas **3 primeiras características independentes** a partir da mesma imagem de entrada.
+
+### Filtros Utilizados e Suas Propriedades
+O OpenCV trabalha com a variação de intensidade dos pixels (gradientes). Uma transição de **preto para branco** gera um valor positivo, enquanto a transição de **branco para preto** gera um valor negativo. Para não perder as bordas negativas (que seriam zeradas se eu usasse o tipo padrão `uint8`), apliquei os filtros utilizando a alta precisão do tipo `cv.CV_64F`, extraí o valor absoluto com o `np.absolute()` e depois preparei o dado para o k-NN.
+
+* **SOBEL X (Gradiente Horizontal):** O filtro caminha horizontalmente e detecta variações bruscas de cor nas laterais. Ele destaca **bordas verticais** da imagem (excelente para capturar a estrutura das pernas do cavalo).
+* **SOBEL Y (Gradiente Vertical):** O filtro caminha verticalmente (de cima para baixo). Ele destaca **bordas horizontais** da imagem (excelente para capturar a linha do dorso do cavalo ou a divisão do chão).
+* **LAPLACIANO (Gradiente de Segunda Ordem):** Calcula a soma das segundas derivadas espaciais. Ele encontra **todas as bordas e contornos de uma só vez**, independente da direção, mapeando o relevo geral das formas.
+
+![alt text](image-2.png)
+
+### Ajuste de Hiperparâmetros dos Filtros
+O comportamento dessas funções matemáticas pode ser tunado e modificado através de parâmetros específicos que alteram o que o k-NN vai "enxergar":
+* **Tamanho do Kernel (`ksize`):** É a matriz de varredura (ex: $3 \times 3$, $5 \times 5$). Kernels menores são altamente sensíveis a texturas e ruídos; kernels maiores ignoram detalhes e focam na silhueta grossa.
+* **Ordem da Derivada (`xorder` e `yorder`):** Define a direção do cálculo no Sobel (como `1, 0` para X ou `0, 1` para Y). É possível aumentar para a segunda ordem (`2, 0` ou `0, 2`) para obter linhas mais finas.
+* **Filtro Scharr:** Ativado ao configurar `ksize = -1` no Sobel, utilizando um kernel $3 \times 3$ otimizado que entrega maior precisão matemática na busca pelos gradientes.
