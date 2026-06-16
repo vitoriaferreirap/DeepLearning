@@ -76,7 +76,12 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
     - https://docs.opencv.org/4.x/db/deb/tutorial_display_image.html
     - https://docs.opencv.org/4.x/d5/d26/tutorial_py_knn_understanding.html
     - https://docs.opencv.org/4.x/d8/d4b/tutorial_py_knn_opencv.html
-    https://docs.opencv.org/4.x/d5/d0f/tutorial_py_gradients.htm
+    - https://docs.opencv.org/4.x/d5/d0f/tutorial_py_gradients.htm
+    - https://docs.opencv.org/4.x/dd/d6a/tutorial_js_filtering.html#autotoc_md1686
+    - https://docs.opencv.org/4.x/dc/dd3/tutorial_gausian_median_blur_bilateral_filter.html
+    - https://www.youtube.com/watch?v=h8Yp3M8SX2M&t=24s
+    - https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html#autotoc_md1335
+
 
 - **Testar**
     - https://scikit-image.org/docs/stable/auto_examples/edges/plot_skeleton.html

@@ -1,0 +1,38 @@
+# Projeto de Classificação Biomecânica Equina: Otimização de Pré-processamento
+
+Este repositório contém o código-fonte, a documentação e os experimentos realizados para o projeto final da disciplina de Introdução a Sistemas Inteligentes. O objetivo central é a implementação de um classificador binário voltado à otimização de sistemas de análise biomecânica equina.
+
+## Descrição do Problema
+O projeto visa reduzir falsos positivos em sistemas de detecção de *keypoints* equinos. Atualmente, o pipeline é sobrecarregado pelo processamento desnecessário de imagens que não contêm cavalos (humanos ou paisagens). O classificador atua como um filtro, permitindo que apenas instâncias com geometria equina avancem para modelos de análise mais complexos.
+
+## Metodologia
+O processo experimental envolveu a aplicação de filtros de Processamento Digital de Imagens (PDI) para extração de 7 características principais antes do treinamento.
+
+## Dataset
+- **Base de Dados:** 1.340 imagens (distribuição equilibrada).
+- **Divisão:** 80% treinamento / 20% testes.
+- **Atributos:** Mínimo de 7 características extraídas via Processamento Digital de Imagens (PDI).
+
+### Fluxo de Trabalho:
+1. **Pré-processamento:** Conversão para tons de cinza, redimensionamento ($64 \times 64$) e normalização.
+2. **Extração de Características:**
+   - **Gradientes:** Sobel X, Sobel Y, Laplaciano.
+   - **Texturas:** Gaussiano e Mediana.
+   - **Geometria:** Detector de bordas de Canny.
+3. **Treinamento:** Divisão 80/20 (Treino/Teste) com estratificação de classes.
+
+## Evolução Experimental
+O estudo foi conduzido em 9 iterações, buscando o equilíbrio ideal entre a redução de Falsos Negativos (FN),para não perder cavalos, e Falsos Positivos (FP), para não sobrecarregar o sistema com humanos.
+
+### Algoritmos Testados:
+* **k-NN (v1 a v7):** Explorou-se a variação de vizinhos ($k=1, 5, 7, 9$), métricas (Euclidiana, Manhattan) e limiares (0,2 a 0,4).
+* **Random Forest (v8 e v9):** Implementado para superar a instabilidade do k-NN e a sensibilidade a limiares.
+
+### Análise Visual das Assinaturas Espaciais
+![alt text](image-1.png)
+
+### A tabela abaixo resume a evolução das 9 versões testadas, com foco na otimização do *Recall* da classe equina (Classe 1):
+![alt text](image.png)
+
+### Matriz de Confusão esquerda (v7 - kNN), matriz de confusão direita (v9) do modelo final (Random Forest). 
+![alt text](image-2.png)
