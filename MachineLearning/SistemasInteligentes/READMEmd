@@ -9,6 +9,9 @@ O projeto visa reduzir falsos positivos em sistemas de detecção de *keypoints*
 O processo experimental envolveu a aplicação de filtros de Processamento Digital de Imagens (PDI) para extração de 7 características principais antes do treinamento.
 
 ## Dataset
+- Ahmadzada, A. (2024) “Images 2000 Dataset”, https://www.kaggle.com/datasets/ahmadahmadzada/images2000. 
+- Kaggle (2024) “Horse Breeds Dataset”, https://www.kaggle.com/datasets/olgabelitskaya/horse-breeds.
+
 - **Base de Dados:** 1.340 imagens (distribuição equilibrada).
 - **Divisão:** 80% treinamento / 20% testes.
 - **Atributos:** Mínimo de 7 características extraídas via Processamento Digital de Imagens (PDI).

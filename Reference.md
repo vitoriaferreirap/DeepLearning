@@ -11,6 +11,9 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
     * **Aulas de Mestrado:** Ciclo de 5 aulas ministradas pelo professor orientador desta Iniciação Científica, abordando tópicos avançados de Aprendizado Profundo, otimização e a fundamentação teórica necessária para o início do desenvolvimento deste projeto.
 
 * **Referências de Estudo:**
+* ***Datasets usados publicos:** *
+ - https://github.com/NarimanNiknejad/DLC_Horse
+ 
 - YOLO
     * https://poloclub.github.io/cnn-explainer/
     * https://github.com/ultralytics/ultralytics
