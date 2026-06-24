@@ -31,6 +31,7 @@ A base teórica de Álgebra Linear, Cálculo e dos primeiros modelos de Redes Ne
 * **Artigos lidos:**
     - https://arxiv.org/abs/1312.4659
     - https://arxiv.org/pdf/1804.03142
+    - https://www.researchgate.net/publication 372133891_EQUINE_KINEMATIC_GAIT_ANALYSIS_USING_STEREO_VIDEOGRAPHY_AND_DEEP_LEARNING_STRIDE_LENGTH_AND_STANCE_DURATION_ESTIMATION
 
 * **Imagem anatomia cavalo:**
 - https://cavalopedia.wordpress.com/2014/01/27/anatomia-o-exterior-dos-cavalos/
